@@ -1,410 +1,59 @@
 # frozen_string_literal: true
 
-STUDENTS_LENGTH = rand(20..40).to_i
-
-students = Student.create!(Array.new(STUDENTS_LENGTH) { { name: Faker::Name.name, born_on: 18.years.ago } })
-teachers = Teacher.create!(Array.new(7) { { name: Faker::Name.name } })
-subjects = Subject.create!([
-                             {
-                               name: 'Matemática'
-                             },
-                             {
-                               name: 'Português'
-                             },
-                             {
-                               name: 'História'
-                             },
-                             {
-                               name: 'Geografia'
-                             },
-                             {
-                               name: 'Física'
-                             },
-                             {
-                               name: 'Química'
-                             },
-                             {
-                               name: 'Inglês'
-                             }
-                           ])
-
-courses = Course.create!([{
-                           year: 2012,
-                           name: '5º Ano',
-                           starts_on: Date.new(2012, 1, 1),
-                           ends_on: Date.new(2012, 12, 31)
-                         },
-                          {
-                            year: 2012,
-                            name: '6º Ano',
-                            starts_on: Date.new(2012, 1, 1),
-                            ends_on: Date.new(2012, 12, 31)
-                          },
-                          {
-                            year: 2012,
-                            name: '7º Ano',
-                            starts_on: Date.new(2012, 1, 1),
-                            ends_on: Date.new(2012, 12, 31)
-                          },
-                          {
-                            year: 2012,
-                            name: '8º Ano',
-                            starts_on: Date.new(2012, 1, 1),
-                            ends_on: Date.new(2012, 12, 31)
-                          },
-                          {
-                            year: 2012,
-                            name: '9º Ano',
-                            starts_on: Date.new(2012, 1, 1),
-                            ends_on: Date.new(2012, 12, 31)
-                          },
-                          {
-                            year: 2013,
-                            name: '5º Ano',
-                            starts_on: Date.new(2013, 1, 1),
-                            ends_on: Date.new(2013, 12, 31)
-                          },
-                          {
-                            year: 2013,
-                            name: '6º Ano',
-                            starts_on: Date.new(2013, 1, 1),
-                            ends_on: Date.new(2013, 12, 31)
-                          },
-                          {
-                            year: 2013,
-                            name: '7º Ano',
-                            starts_on: Date.new(2013, 1, 1),
-                            ends_on: Date.new(2013, 12, 31)
-                          },
-                          {
-                            year: 2013,
-                            name: '8º Ano',
-                            starts_on: Date.new(2013, 1, 1),
-                            ends_on: Date.new(2013, 12, 31)
-                          },
-                          {
-                            year: 2013,
-                            name: '9º Ano',
-                            starts_on: Date.new(2013, 1, 1),
-                            ends_on: Date.new(2013, 12, 31)
-                          },
-                          {
-                            year: 2014,
-                            name: '5º Ano',
-                            starts_on: Date.new(2014, 1, 1),
-                            ends_on: Date.new(2014, 12, 31)
-                          },
-                          {
-                            year: 2014,
-                            name: '6º Ano',
-                            starts_on: Date.new(2014, 1, 1),
-                            ends_on: Date.new(2014, 12, 31)
-                          },
-                          {
-                            year: 2014,
-                            name: '7º Ano',
-                            starts_on: Date.new(2014, 1, 1),
-                            ends_on: Date.new(2014, 12, 31)
-                          },
-                          {
-                            year: 2014,
-                            name: '8º Ano',
-                            starts_on: Date.new(2014, 1, 1),
-                            ends_on: Date.new(2014, 12, 31)
-                          },
-                          {
-                            year: 2014,
-                            name: '9º Ano',
-                            starts_on: Date.new(2014, 1, 1),
-                            ends_on: Date.new(2014, 12, 31)
-                          },
-                          {
-                            year: 2015,
-                            name: '5º Ano',
-                            starts_on: Date.new(2015, 1, 1),
-                            ends_on: Date.new(2015, 12, 31)
-                          },
-                          {
-                            year: 2015,
-                            name: '6º Ano',
-                            starts_on: Date.new(2015, 1, 1),
-                            ends_on: Date.new(2015, 12, 31)
-                          },
-                          {
-                            year: 2015,
-                            name: '7º Ano',
-                            starts_on: Date.new(2015, 1, 1),
-                            ends_on: Date.new(2015, 12, 31)
-                          },
-                          {
-                            year: 2015,
-                            name: '8º Ano',
-                            starts_on: Date.new(2015, 1, 1),
-                            ends_on: Date.new(2015, 12, 31)
-                          },
-                          {
-                            year: 2015,
-                            name: '9º Ano',
-                            starts_on: Date.new(2015, 1, 1),
-                            ends_on: Date.new(2015, 12, 31)
-                          },
-                          {
-                            year: 2016,
-                            name: '5º Ano',
-                            starts_on: Date.new(2016, 1, 1),
-                            ends_on: Date.new(2016, 12, 31)
-                          },
-                          {
-                            year: 2016,
-                            name: '6º Ano',
-                            starts_on: Date.new(2016, 1, 1),
-                            ends_on: Date.new(2016, 12, 31)
-                          },
-                          {
-                            year: 2016,
-                            name: '7º Ano',
-                            starts_on: Date.new(2016, 1, 1),
-                            ends_on: Date.new(2016, 12, 31)
-                          },
-                          {
-                            year: 2016,
-                            name: '8º Ano',
-                            starts_on: Date.new(2016, 1, 1),
-                            ends_on: Date.new(2016, 12, 31)
-                          },
-                          {
-                            year: 2016,
-                            name: '9º Ano',
-                            starts_on: Date.new(2016, 1, 1),
-                            ends_on: Date.new(2016, 12, 31)
-                          },
-                          {
-                            year: 2017,
-                            name: '5º Ano',
-                            starts_on: Date.new(2017, 1, 1),
-                            ends_on: Date.new(2017, 12, 31)
-                          },
-                          {
-                            year: 2017,
-                            name: '6º Ano',
-                            starts_on: Date.new(2017, 1, 1),
-                            ends_on: Date.new(2017, 12, 31)
-                          },
-                          {
-                            year: 2017,
-                            name: '7º Ano',
-                            starts_on: Date.new(2017, 1, 1),
-                            ends_on: Date.new(2017, 12, 31)
-                          },
-                          {
-                            year: 2017,
-                            name: '8º Ano',
-                            starts_on: Date.new(2017, 1, 1),
-                            ends_on: Date.new(2017, 12, 31)
-                          },
-                          {
-                            year: 2017,
-                            name: '9º Ano',
-                            starts_on: Date.new(2017, 1, 1),
-                            ends_on: Date.new(2017, 12, 31)
-                          },
-                          {
-                            year: 2018,
-                            name: '5º Ano',
-                            starts_on: Date.new(2018, 1, 1),
-                            ends_on: Date.new(2018, 12, 31)
-                          },
-                          {
-                            year: 2018,
-                            name: '6º Ano',
-                            starts_on: Date.new(2018, 1, 1),
-                            ends_on: Date.new(2018, 12, 31)
-                          },
-                          {
-                            year: 2018,
-                            name: '7º Ano',
-                            starts_on: Date.new(2018, 1, 1),
-                            ends_on: Date.new(2018, 12, 31)
-                          },
-                          {
-                            year: 2018,
-                            name: '8º Ano',
-                            starts_on: Date.new(2018, 1, 1),
-                            ends_on: Date.new(2018, 12, 31)
-                          },
-                          {
-                            year: 2018,
-                            name: '9º Ano',
-                            starts_on: Date.new(2018, 1, 1),
-                            ends_on: Date.new(2018, 12, 31)
-                          },
-                          {
-                            year: 2019,
-                            name: '5º Ano',
-                            starts_on: Date.new(2019, 1, 1),
-                            ends_on: Date.new(2019, 12, 31)
-                          },
-                          {
-                            year: 2019,
-                            name: '6º Ano',
-                            starts_on: Date.new(2019, 1, 1),
-                            ends_on: Date.new(2019, 12, 31)
-                          },
-                          {
-                            year: 2019,
-                            name: '7º Ano',
-                            starts_on: Date.new(2019, 1, 1),
-                            ends_on: Date.new(2019, 12, 31)
-                          },
-                          {
-                            year: 2019,
-                            name: '8º Ano',
-                            starts_on: Date.new(2019, 1, 1),
-                            ends_on: Date.new(2019, 12, 31)
-                          },
-                          {
-                            year: 2019,
-                            name: '9º Ano',
-                            starts_on: Date.new(2019, 1, 1),
-                            ends_on: Date.new(2019, 12, 31)
-                          },
-                          {
-                            year: 2020,
-                            name: '5º Ano',
-                            starts_on: Date.new(2020, 1, 1),
-                            ends_on: Date.new(2020, 12, 31)
-                          },
-                          {
-                            year: 2020,
-                            name: '6º Ano',
-                            starts_on: Date.new(2020, 1, 1),
-                            ends_on: Date.new(2020, 12, 31)
-                          },
-                          {
-                            year: 2020,
-                            name: '7º Ano',
-                            starts_on: Date.new(2020, 1, 1),
-                            ends_on: Date.new(2020, 12, 31)
-                          },
-                          {
-                            year: 2020,
-                            name: '8º Ano',
-                            starts_on: Date.new(2020, 1, 1),
-                            ends_on: Date.new(2020, 12, 31)
-                          },
-                          {
-                            year: 2020,
-                            name: '9º Ano',
-                            starts_on: Date.new(2020, 1, 1),
-                            ends_on: Date.new(2020, 12, 31)
-                          },
-                          {
-                            year: 2021,
-                            name: '5º Ano',
-                            starts_on: Date.new(2021, 1, 1),
-                            ends_on: Date.new(2021, 12, 31)
-                          },
-                          {
-                            year: 2021,
-                            name: '6º Ano',
-                            starts_on: Date.new(2021, 1, 1),
-                            ends_on: Date.new(2021, 12, 31)
-                          },
-                          {
-                            year: 2021,
-                            name: '7º Ano',
-                            starts_on: Date.new(2021, 1, 1),
-                            ends_on: Date.new(2021, 12, 31)
-                          },
-                          {
-                            year: 2021,
-                            name: '8º Ano',
-                            starts_on: Date.new(2021, 1, 1),
-                            ends_on: Date.new(2021, 12, 31)
-                          },
-                          {
-                            year: 2021,
-                            name: '9º Ano',
-                            starts_on: Date.new(2021, 1, 1),
-                            ends_on: Date.new(2021, 12, 31)
-                          },
-                          {
-                            year: 2022,
-                            name: '5º Ano',
-                            starts_on: Date.new(2022, 1, 1),
-                            ends_on: Date.new(2022, 12, 31)
-                          },
-                          {
-                            year: 2022,
-                            name: '6º Ano',
-                            starts_on: Date.new(2022, 1, 1),
-                            ends_on: Date.new(2022, 12, 31)
-                          },
-                          {
-                            year: 2022,
-                            name: '7º Ano',
-                            starts_on: Date.new(2022, 1, 1),
-                            ends_on: Date.new(2022, 12, 31)
-                          },
-                          {
-                            year: 2022,
-                            name: '8º Ano',
-                            starts_on: Date.new(2022, 1, 1),
-                            ends_on: Date.new(2022, 12, 31)
-                          },
-                          {
-                            year: 2022,
-                            name: '9º Ano',
-                            starts_on: Date.new(2022, 1, 1),
-                            ends_on: Date.new(2022, 12, 31)
-                          },
-                          {
-                            year: 2023,
-                            name: '5º Ano',
-                            starts_on: Date.new(2023, 1, 1),
-                            ends_on: Date.new(2023, 12, 31)
-                          },
-                          {
-                            year: 2023,
-                            name: '6º Ano',
-                            starts_on: Date.new(2023, 1, 1),
-                            ends_on: Date.new(2023, 12, 31)
-                          },
-                          {
-                            year: 2023,
-                            name: '7º Ano',
-                            starts_on: Date.new(2023, 1, 1),
-                            ends_on: Date.new(2023, 12, 31)
-                          },
-                          {
-                            year: 2023,
-                            name: '8º Ano',
-                            starts_on: Date.new(2023, 1, 1),
-                            ends_on: Date.new(2023, 12, 31)
-                          },
-                          {
-                            year: 2023,
-                            name: '9º Ano',
-                            starts_on: Date.new(2023, 1, 1),
-                            ends_on: Date.new(2023, 12, 31)
-                          }])
-
+STUDENTS_LENGTH = rand(20..40)
+TEACHERS_LENGTH = 7
 GRADES = ['5º Ano', '6º Ano', '7º Ano', '8º Ano', '9º Ano'].freeze
+SUBJECTS_PARAMS = [{ name: 'Matemática' }, { name: 'Português' }, { name: 'História' },
+                   { name: 'Geografia' }, { name: 'Física' }, { name: 'Química' },
+                   { name: 'Inglês' }].freeze
 
-enrollments = []
+COURSES_PARAMS = GRADES.map do |grade|
+  grades_array = []
+  (2012..2023).each do |year|
+    grades_array.push(
+      {
+        year:,
+        name: grade,
+        starts_on: Date.new(year, 1, 1),
+        ends_on: Date.new(year, 12, 31)
+      }
+    )
+  end
+  grades_array
+end.flatten.freeze
 
-# PROGRESSION equals to a random number (0 or 1) that defines if a student's going to have
+puts('Creating Students...')
+students = Student.create!(Array.new(STUDENTS_LENGTH) { { name: Faker::Name.name, born_on: 18.years.ago } })
+puts("Done! Students created: #{students.length}")
+
+puts('Creating Teachers...')
+teachers = Teacher.create!(Array.new(TEACHERS_LENGTH) { { name: Faker::Name.name } })
+puts("Done! Teachers created: #{teachers.length}")
+
+puts('Creating Subjects...')
+subjects = Subject.create!(SUBJECTS_PARAMS)
+puts("Done! Subjects created: #{subjects.length}")
+
+puts('Creating Courses...')
+courses = Course.create!(COURSES_PARAMS)
+puts("Done! Courses created: #{courses.length}")
+
+# progression equals to a random number (0 or 1) that defines if a student's going to have
 # more than one course enrolled, in a progression of grades e.g 5º Ano (2013), 6º Ano (2016) and so forth.
 # if there's a progression then it creates the necessary enrollments, if it reaches 2023 or the the last GRADES
 # index + 1, then it doesn't iterate
-students.each do |student|
-  PROGRESSION = rand(0..1).to_i
-  grade = GRADES[rand(0..4)]
-  random_year = rand(2012..2023).to_i
 
-  if PROGRESSION.zero? || random_year == 2023
-    course = courses.select { |c| c.year == random_year && c.name == grade }
-    enrollments.push(Enrollment.create!({ code: Digest::UUID.uuid_v4, student:, course: course[0] }))
+puts('Creating Enrollments...')
+enrollments = []
+students.each do |student|
+  progression = rand(0..1)
+  grade = GRADES[rand(0..4)]
+  random_year = rand(2012..2023)
+
+  if progression.zero? || random_year == 2023
+    course = courses.select { |course| course.year == random_year && course.name == grade }
+    enrollments.push(Enrollment.create!({ code: Digest::UUID.uuid_v4, student:,
+                                          course: course[0] }))
   else
     year_index = random_year
     continue = true
@@ -414,42 +63,54 @@ students.each do |student|
         continue = false
         next
       end
-      course = courses.select { |c| c.year == year_index && c.name == GRADES[grades_index] }
-      enrollments.push(Enrollment.create!({ code: Digest::UUID.uuid_v4, student:, course: course[0] }))
-
+      course = courses.select do |c|
+        c.year == year_index && c.name == GRADES[grades_index]
+      end
+      enrollments.push(Enrollment.create!({ code: Digest::UUID.uuid_v4, student:,
+                                            course: course[0] }))
       year_index += 1
       grades_index += 1
     end
   end
 end
+puts("Done! Enrollments created: #{enrollments.length}")
 
-exams = []
-
-courses.each do |course|
+puts('Creating Exams...')
+exams = courses.map do |course|
   exams_quantity = course.year == 2023 ? 4 : 8
 
-  subjects.each do |subject|
-    for i in 0..exams_quantity - 1 do
-      exams.push(Exam.create!(course:, subject:, realized_on: Faker::Date.in_date_period(year: course.year)))
+  subjects.map do |subject|
+    exams = []
+    (0..exams_quantity - 1).each do
+      exams.push(Exam.create!(course:, subject:,
+                              realized_on: Faker::Date.in_date_period(year: course.year)))
     end
+
+    exams.entries
   end
-end
+end.flatten
+puts("Done! Exams created: #{exams.length}")
 
-grades = []
+puts('Creating Grades...')
+grades = enrollments.map do |enrollment|
+  enrollments_exams = exams.select { |exam| exam.course_id == enrollment.course_id }
 
-enrollments.each do |enrollment|
-  enrollments_exams = exams.select { |e| e.course.id == enrollment.course.id }
-
-  enrollments_exams.each do |exam|
-    value = rand(0..10).to_i
-    grades.push(Grade.create!(value:, exam:, enrollment:))
+  enrollments_exams.map do |exam|
+    value = rand(0..10)
+    Grade.create!(value:, exam:, enrollment:)
   end
-end
+end.flatten
+puts("Done! Grades created: #{grades.length}")
 
-courses.each do |course|
-  teachers.each do |teacher|
-    random_subject_index = rand(0..6).to_i
+puts('Creating Teachers Assignments...')
+teacher_assignments = courses.map do |course|
+  teachers.map do |teacher|
+    random_subject_index = rand(0..6)
     random_subject = subjects[random_subject_index]
     TeacherAssignment.create!(course:, teacher:, subject: random_subject)
   end
-end
+end.flatten
+
+puts("Done! Teachers Assignments created: #{teacher_assignments.length}")
+
+puts('Seed FINALLY completed successfully')
