@@ -22,9 +22,9 @@ dar aulas apenas de física pro 9° ano e matemática no 6° ano. Usem a lógica
 
 ## Tarefa 2: Index e show de student
 
-Ambas as página podem receber um _query param_ opcional `year`, que informa o ano que queremos mostrar as informações
-abaixo. Se não informado, será usado o ano atual. Caso o aluno não esteja matriculado no ano selecionado, exibir um
-_flash message_ com essa informação:
+Ambas as páginas podem receber um _query param_ opcional chamado `year`, que informa o ano o qual queremos mostrar as informações
+logo abaixo. Se não informado, será usado o ano atual. Caso o aluno não esteja matriculado no ano selecionado, exibir um
+_flash message_ com tal informação.
 
 Exibir os campos faltantes da tabela de index:
 
