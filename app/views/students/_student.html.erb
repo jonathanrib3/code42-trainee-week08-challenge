@@ -9,6 +9,37 @@
     <%= student.born_on %>
   </p>
 
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Active Enrollment:</strong>
+    <%= @enrollment_code.nil? ? '-' : @enrollment_code %>
+  </p>
+
+   <div class="rounded-xl overflow-auto">
+      <table class="border-collapse table-auto w-full text-sm">
+        <thead>
+          <tr>
+            <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap">Subject</th>
+            <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap">Course name</th>
+            <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap">Course year</th>
+            <th class="bg-blue-100 border text-left px-8 py-4 whitespace-nowrap">Average</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @averages.each do |avg_data_array| %>
+            <% flattened_avg_data_array = avg_data_array.flatten %>
+                <tr>
+                  <td class="border px-8 py-4 w-full whitespace-nowrap"><%= flattened_avg_data_array.first %></td>
+                  <td class="border px-8 py-4 w-full whitespace-nowrap"><%= flattened_avg_data_array.second %></td>
+                  <td class="border px-8 py-4 whitespace-nowrap"><%= flattened_avg_data_array.third %></td>
+                  <td class="border px-8 py-4 whitespace-nowrap"><%= flattened_avg_data_array.fourth %></td>
+                </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  
+  <strong class="block font-medium mb-1">Total Grades : <%= @student.grades.size %> </strong>
+
   <% if action_name != "show" %>
     <%= link_to "Show this student", student, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this student', edit_student_path(student), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
